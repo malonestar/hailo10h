@@ -23,11 +23,10 @@ def init_picam(resolution: str = "full") -> Picamera2:
     
     size = RESOLUTIONS[resolution]
     picam2 = Picamera2()
-    config = picam2.create_preview_configuration(
-        main={
-            "format": "RGB888",
-            "size": size,
-        }
+    config = picam2.create_video_configuration(
+        sensor={"output_size": size},
+        main={"format": "RGB888", "size": size},
+        buffer_count=4,
     )
     picam2.configure(config)
     picam2.start()
