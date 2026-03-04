@@ -11,7 +11,7 @@ def parse_args():
 
     parser.add_argument(
         "--resolution",
-        default="full",
+        default="1080p",
         choices = ["full", "1080p", "720p", "480p"],
         help="Camera resolution presets - full (default), 1080p, 720p, 480"
     )
